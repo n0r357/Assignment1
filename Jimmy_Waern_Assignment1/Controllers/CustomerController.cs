@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Jimmy_Waern_Assignment1.Models;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Jimmy_Waern_Assignment1.Controllers
 {
@@ -40,11 +41,15 @@ namespace Jimmy_Waern_Assignment1.Controllers
         [HttpPost]
         public IActionResult CreateCustomer(Customer customer)
         {
-            if (customer == null)
+            Regex emailFormat = new Regex(@"^[^@]+@[^@]+\.[^@]+$");
+            if (customer.FirstName == null || customer.LastName == null || customer.Age <= 0 || customer.Age > 140)
             {
-                return BadRequest();
+                return BadRequest("Ange information.");
             }
-
+            else if (!emailFormat.Match(customer.Email).Success)
+            {
+                return BadRequest("Fel format.");
+            }
             customer.Created = DateTime.Now.ToString("yyyy-MM-dd");
             _context.Customers.Add(customer);
             _context.SaveChanges();
@@ -54,9 +59,14 @@ namespace Jimmy_Waern_Assignment1.Controllers
         [HttpPut]
         public IActionResult EditCustomer(Customer customer)
         {
-            if (customer == null)
+            Regex emailFormat = new Regex(@"^[^@]+@[^@]+\.[^@]+$");
+            if (customer.FirstName == null || customer.LastName == null || customer.Age <= 0 || customer.Age > 140)
             {
-                return BadRequest();
+                return BadRequest("Ange information.");
+            }
+            else if (!emailFormat.Match(customer.Email).Success)
+            {
+                return BadRequest("Fel format.");
             }
 
             var existingCustomer = _context.Customers.FirstOrDefault(t => t.Id == customer.Id);
