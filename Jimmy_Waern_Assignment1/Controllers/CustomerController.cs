@@ -42,7 +42,7 @@ namespace Jimmy_Waern_Assignment1.Controllers
         public IActionResult CreateCustomer(Customer customer)
         {
             Regex emailFormat = new Regex(@"^[^@]+@[^@]+\.[^@]+$");
-            if (customer.FirstName == null || customer.LastName == null || customer.Age <= 0 || customer.Age > 140)
+            if (customer.FirstName == null || customer.LastName == null || !emailFormat.Match(customer.Email).Success || customer.Age <= 0 || customer.Age > 140)
             {
                 return BadRequest("Ange information.");
             }

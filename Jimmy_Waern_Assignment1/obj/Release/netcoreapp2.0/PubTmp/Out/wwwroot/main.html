@@ -12,6 +12,7 @@
             crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <link href="css/main.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 </head>
 <body>
     <header class="bg-header">
@@ -34,21 +35,21 @@
         </div>
         <div id="customerForm" class="col-sm-12 mt-3">
             <div class="form-group row">
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label for="firstName">Förnamn:</label>
-                        <input type="text" class="form-control" id="firstName" maxlength="20" placeholder="Förnamn">
+                        <input type="text" class="form-control" id="firstName" maxlength="20" placeholder="Förnamn" required autofocus>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Efternamn:</label>
-                        <input type="text" class="form-control" id="lastName" maxlength="20" placeholder="Efternamn">
+                        <input type="text" class="form-control" id="lastName" maxlength="20" placeholder="Efternamn" required autofocus>
                     </div>
                     <div class="form-group">
                         <label for="email">E-post:</label>
-                        <input type="text" class="form-control" id="email" maxlength="30" placeholder="E-post">
+                        <input type="email" class="form-control" id="email" maxlength="30" placeholder="E-post" required autofocus>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="form-group">
                         <label for="gender">Kön:</label>
                         <select class="form-control" id="gender">
@@ -58,10 +59,10 @@
                     </div>
                     <div class="form-group">
                         <label for="age">Ålder:</label>
-                        <input type="number" class="form-control" id="age" maxlength="3" placeholder="Ålder">
+                        <input type="number" class="form-control" id="age" maxlength="3" placeholder="Ålder" required autofocus>
                     </div>
-                    <div id="button" class="text-center pt-3">
-                        <button class="btn btn-primary create" type="submit">Skapa kund</button>
+                    <div id="createButton">
+                        <button class="btn btn-success create" type="submit">Skapa kund</button>
                     </div>
                 </div>
             </div>

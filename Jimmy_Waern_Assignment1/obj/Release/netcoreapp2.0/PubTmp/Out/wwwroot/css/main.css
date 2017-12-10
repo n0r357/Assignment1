@@ -11,6 +11,37 @@
     border-top: 1px #666 solid;
 }
 
+.container{
+    min-width: 700px;
+}
+
+.menuButtons {
+    min-width: 670px;
+}
+
+.menuButtons button {
+    height: 40px;
+    width: 140px;
+}
+
+#createButton button {
+    height: 40px;
+    width: 140px;
+}
+
+.editButton, .editButton:hover, .removeButton {
+    color: #fff;
+    height: 40px;
+    width: 40px;
+}
+
+#createButton {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
+}
+
 .customerTable {
     overflow: scroll;
 }

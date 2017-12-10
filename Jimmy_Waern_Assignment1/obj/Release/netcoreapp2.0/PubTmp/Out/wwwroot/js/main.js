@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
-    var button = $("#button button");
+    var cancelButton = $("#cancelButton button");
+    var createButton = $("#createButton button");
 
     var customerForm = $("#customerForm");
     var firstName = $('#firstName');
@@ -9,6 +10,15 @@
     var age = $('#age');
 
     var customerTable = $('#customerTable');
+
+    String.prototype.format = function () {
+        var str = this;
+        for (var i = 0; i < arguments.length; i++) {
+            var reg = new RegExp("\\{" + i + "\\}", "gm");
+            str = str.replace(reg, arguments[i]);
+        }
+        return str;
+    }
 
     getCustomers();
 
@@ -24,7 +34,7 @@
                 row.appendTo(customerTable);
             });
         }).fail(function (xhr, status, error) {
-            var log = String.Format("{0} - {1} - {2} - {3}", "Customer Get Failed", xhr, status, error);
+            var log = logFormat("Customer Get Failed", xhr, status, error);
             saveLog(log);
         });
     }
@@ -38,8 +48,8 @@
             "<td>" + customer.age + "</td>" +
             "<td>" + customer.created + "</td>" +
             "<td>" + customer.edited + "</td>" +
-            "<td><button id='" + customer.id + "' class='btn btn-primary editButton'>Ändra</button></td>" +
-            "<td><button id='" + customer.id + "' class='btn btn-primary removeButton'>Radera</button></td>";
+            "<td><button id='" + customer.id + "' class='btn btn-warning editButton'><i class='fas fa-pencil-alt'></i></button></td>" +
+            "<td><button id='" + customer.id + "' class='btn btn-danger removeButton'><i class='fas fa-trash-alt'></i></button></td>";
     }
 
     $(document).on("click", ".create", function () {
@@ -49,7 +59,6 @@
         customer.email = email.val();
         customer.gender = gender.val();
         customer.age = age.val();
-
         $.ajax({
             url: "api/customer/",
             type: "POST",
@@ -59,15 +68,10 @@
             resetForm();
             saveLog("Customer: " + name + " Created");
         }).fail(function (xhr, status, error) {
-            var log = String.Format("{0} - {1} - {2} - {3}", "Customer Create Failed", xhr, status, error);
+            var log = logFormat("Customer Create Failed", xhr, status, error);
             saveLog(log);
         });
     });
-
-    function resetForm() {
-        customerForm.find("input").val("");
-        gender.val("Man");
-    }
 
     $(document).on("click", ".editButton", function () {
         var id = $(this).attr("id");
@@ -86,7 +90,8 @@
     });
 
     function editCustomer(id) {
-        button.text("Spara ändring").removeClass("create").addClass("edit").attr("id", id);
+        cancelButton.text("Avbryt").removeClass("clear").addClass("cancel");
+        createButton.text("Spara ändring").removeClass("create").addClass("edit").attr("id", id);
     }
 
     $(document).on("click", ".edit", function () {
@@ -99,18 +104,25 @@
         customer.gender = gender.val();
         customer.age = age.val();
 
-        $.ajax({
+        var request = new window.XMLHttpRequest();
+
+        var edit = $.ajax({
             url: "/api/customer",
             type: "PUT",
             data: customer
         }).done(function () {
             getCustomers();
             resetForm();
-            button.text("Skapa kund").removeClass("edit").addClass("create");
+            createButton.text("Skapa kund").removeClass("edit").addClass("create");
             saveLog("CustomerId: " + id + " Edited");
         }).fail(function (xhr, status, error) {
-            var log = String.Format("{0} - {1} - {2} - {3}", "Customer Edit Failed", xhr, status, error);
+            var log = logFormat("Customer Edit Failed", xhr, status, error);
             saveLog(log);
+            });
+
+        $(document).on('click', '.cancel', function (e) {
+            request.abort();
+            cancelButton.text("Rensa").removeClass("cancel").addClass("clear");
         });
     });
 
@@ -124,7 +136,7 @@
             getCustomers();
             saveLog("CustomerId: " + id + " Deleted");
         }).fail(function (xhr, status, error) {
-            var log = String.Format("{0} - {1} - {2} - {3}", "Customer Delete Failed", xhr, status, error);
+            var log = logFormat("Customer Delete Failed", xhr, status, error);
             saveLog(log);
         });
     });
@@ -136,9 +148,9 @@
         }).done(function () {
             saveLog("Database Seeded");
             getCustomers();
-            }).fail(function (xhr, status, error) {
-                var log = String.Format("{0} - {1} - {2} - {3}", "DB Seed Failed", xhr, status, error);
-                saveLog(log);
+        }).fail(function (xhr, status, error) {
+            var log = logFormat("DB Seed Failed", xhr, status, error);
+            saveLog(log);
         });
     });
 
@@ -149,9 +161,9 @@
         }).done(function (log) {
             window.location.href = "/api/customer/getlog";
             console.log(log);
-            }).fail(function (xhr, status, error) {
-                var log = String.Format("{0} - {1} - {2} - {3}", "Log Retrieve Failed", xhr, status, error);
-                saveLog(log);
+        }).fail(function (xhr, status, error) {
+            var log = logFormat("Log Retrieve Failed", xhr, status, error);
+            saveLog(log);
         });
     });
 
@@ -162,8 +174,17 @@
             data: { "log": log }
         }).done(function () {
             console.log("Log Saved");
-            }).fail(function (xhr, status, error) {
-                alert("Log Save Failed")
+        }).fail(function (xhr, status, error) {
+            alert("Log Save Failed")
         });
+    }
+
+    function resetForm() {
+        customerForm.find("input").val("");
+        gender.val("Man");
+    }
+
+    function logFormat(message, xhr, status, error) {
+        return "{0} - {1} - {2} - {3}".format(message, error, xhr.status, status);
     }
 });
