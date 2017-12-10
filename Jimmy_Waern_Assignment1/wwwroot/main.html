@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ASSIGNMENT1</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="bg-header">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 text-center">
+                <h1 class="display-2">Inlämning 1</h1>
+            </div>
+        </div>
+    </header>
+    <div class="container mt-3">
+        <div class="col-sm-12">
+            <div class="row menuButtons">
+                <div class="col-sm-6 text-center">
+                    <button class="btn btn-primary seed" type="submit">Befolka Databas</button>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <button class="btn btn-primary logger" type="submit">Visa Loggfil</button>
+                </div>
+            </div>
+        </div>
+        <div id="customerForm" class="col-sm-12 mt-3">
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="firstName">Förnamn:</label>
+                        <input type="text" class="form-control" id="firstName" maxlength="20" placeholder="Förnamn">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Efternamn:</label>
+                        <input type="text" class="form-control" id="lastName" maxlength="20" placeholder="Efternamn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-post:</label>
+                        <input type="text" class="form-control" id="email" maxlength="30" placeholder="E-post">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="gender">Kön:</label>
+                        <select class="form-control" id="gender">
+                            <option>Man</option>
+                            <option>Kvinna</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Ålder:</label>
+                        <input type="number" class="form-control" id="age" maxlength="3" placeholder="Ålder">
+                    </div>
+                    <div id="button" class="text-center pt-3">
+                        <button class="btn btn-primary create" type="submit">Skapa kund</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 mt-3">
+            <div class="row customerTable">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Förnamn</th>
+                            <th>Efternamn</th>
+                            <th>E-post</th>
+                            <th>Kön</th>
+                            <th>Ålder</th>
+                            <th>Skapad</th>
+                            <th>Redigerad</th>
+                            <th>Ändra</th>
+                            <th>Radera</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center bg-footer mt-3">
+        <span>&copy; Jimmy Waern 2017</span>
+    </footer>
+</body>
+</html>

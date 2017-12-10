@@ -1,0 +1,40 @@
+﻿.bg-header, .bg-footer {
+    background: #eee;
+    padding: 20px;
+}
+
+.bg-header {
+    border-bottom: 1px #666 solid;
+}
+
+.bg-footer {
+    border-top: 1px #666 solid;
+}
+
+.customerTable {
+    overflow: scroll;
+}
+
+.menuButtons, #customerForm, .customerTable {
+    background: #eee;
+    border: 1px #666 solid;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.table {
+    border-radius: 5px !important;
+}
+
+
+.table tr {
+    background: #fff;
+    border-left: 1px #ccc solid;
+    border-right: 1px #ccc solid;
+}
+
+    .table td, .table th {
+        border-top: 1px #ccc solid !important;
+        border-bottom: 1px #ccc solid !important;
+        vertical-align: middle;
+    }

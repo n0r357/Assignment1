@@ -1,0 +1,58 @@
+2017-12-09 08:53:05 : Customer: dfd Created
+[2017-12-09 08:58:04] Customer: sdfsd Created
+[2017-12-09 08:58:48] DB Seeded
+[2017-12-09 08:59:51] Database Seeded
+[2017-12-09 08:59:56] CustomerId: 1993 Deleted
+[2017-12-09 08:59:57] CustomerId: 1995 Deleted
+[2017-12-09 08:59:58] CustomerId: 1997 Deleted
+[2017-12-09 09:02:51] Database Seeded
+[2017-12-09 09:03:01] CustomerId: 2998 Deleted
+[2017-12-09 09:03:04] CustomerId: 2996 Deleted
+[2017-12-09 09:03:11] CustomerId: 2997 Edited
+[2017-12-09 09:03:25] Customer: asda Created
+[2017-12-09 09:06:07] Customer: asdas Created
+[2017-12-09 09:06:21] CustomerId: 1 Edited
+[2017-12-09 09:06:26] Database Seeded
+[2017-12-09 09:38:40] Database Seeded
+[2017-12-09 09:38:51] CustomerId: 1 Edited
+[2017-12-09 09:38:55] CustomerId: 2 Deleted
+[2017-12-09 09:39:25] Customer: Waern Created
+[2017-12-09 10:02:41] Database Seeded
+[2017-12-09 10:02:44] CustomerId: 1 Deleted
+[2017-12-09 10:02:45] CustomerId: 2 Deleted
+[2017-12-09 10:02:46] CustomerId: 3 Deleted
+[2017-12-09 10:02:47] CustomerId: 4 Deleted
+[2017-12-09 10:02:47] CustomerId: 6 Deleted
+[2017-12-09 10:38:30] CustomerId: 5 Edited
+[2017-12-09 10:40:22] CustomerId: 7 Edited
+[2017-12-09 10:42:07] CustomerId: 5 Edited
+[2017-12-09 10:46:22] Database Seeded
+[2017-12-09 10:46:31] CustomerId: 1 Edited
+[2017-12-09 10:46:39] CustomerId: 6 Edited
+[2017-12-09 10:46:47] CustomerId: 2 Deleted
+[2017-12-09 10:46:47] CustomerId: 1 Deleted
+[2017-12-09 10:46:50] CustomerId: 7 Deleted
+[2017-12-09 11:45:00] Customer: dfgdfg Created
+[2017-12-09 11:51:04] Database Seeded
+[2017-12-09 11:51:21] Customer: Waern Created
+[2017-12-09 11:51:27] CustomerId: 3 Deleted
+[2017-12-09 11:51:30] CustomerId: 2 Deleted
+[2017-12-09 11:51:39] CustomerId: 1 Edited
+[2017-12-09 11:51:43] CustomerId: 5 Deleted
+[2017-12-09 11:51:45] Database Seeded
+[2017-12-09 11:51:50] Database Seeded
+[2017-12-09 11:51:53] Database Seeded
+[2017-12-09 11:53:03] Customer: dsgfgsd Created
+[2017-12-09 11:53:15] Database Seeded
+[2017-12-09 11:54:51] CustomerId: 11 Deleted
+[2017-12-09 11:54:53] CustomerId: 3 Deleted
+[2017-12-09 11:55:07] CustomerId: 9 Deleted
+[2017-12-09 11:55:08] CustomerId: 7 Deleted
+[2017-12-09 11:55:08] CustomerId: 5 Deleted
+[2017-12-09 11:55:09] CustomerId: 4 Deleted
+[2017-12-09 11:55:09] CustomerId: 2 Deleted
+[2017-12-09 11:55:10] CustomerId: 6 Deleted
+[2017-12-09 11:55:11] CustomerId: 8 Deleted
+[2017-12-09 11:55:12] CustomerId: 10 Deleted
+[2017-12-09 11:55:14] Database Seeded
+[2017-12-09 11:55:47] CustomerId: 16 Edited
